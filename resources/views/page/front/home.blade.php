@@ -4,6 +4,7 @@
 @extends("layouts.front.frontbase")
 
 @section("content")
+    <div style="background: radial-gradient(circle at right bottom, #84f0ee , #967fef)">
         <div class="main1">
             <div class="reklam">
                 reklam
@@ -36,4 +37,5 @@
                 @endforeach
             </div>
         </div>
+    </div>
 @endsection

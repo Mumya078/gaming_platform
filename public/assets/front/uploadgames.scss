@@ -1,0 +1,26 @@
+.main{
+    display: flex;
+    background: radial-gradient(circle at right bottom, #84f0ee , #967fef);
+    width: 100%;
+    height: 100%;
+}
+
+.content-my{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    place-items: center;
+}
+
+
+
+.label{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-left: 5px;
+}
+
+
+

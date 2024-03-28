@@ -24,3 +24,114 @@
         color: black;
     }
 }
+
+.user-pp{
+    position: absolute;
+    display: flex;
+    right: 10px;
+    background: #84f0ee;
+    width: 55px;
+    height: 55px;
+    margin-top: 5px;
+    margin-right: 15px;
+    border-radius: 50%;
+    place-items: center;
+    justify-content: center;
+    >img{
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+.user-pp-side{
+    display: flex;
+    background: #84f0ee;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-left: 35px;
+    margin-top: 5px;
+    >img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.inside{
+    display: flex;
+    flex-direction: column;
+    >h5{
+        padding-left: 32px;
+        padding-top: -8px;
+        font-size: 23px;
+        color: black;
+        font-weight: 600;
+    }
+    >h6{
+        padding-left: 32px;
+        padding-top: -8px;
+        font-size: 20px;
+        color: black;
+        font-weight: 600;
+        margin-bottom: 45px;
+    }
+}
+
+.left-side{
+    width: 250px;
+    height: 55px;
+    display: flex;
+    margin-top: 11px;
+    margin-left: 25px;
+    >h5{
+        font-size: 32px;
+        font-weight: 700;
+        color: turquoise;
+    }
+}
+
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: -2px;
+    background: radial-gradient(circle at right bottom, #84f0ee , #967fef) !important;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.35s; /* 0.5 second transition effect to slide in the sidebar */
+    border-left: 2px solid black;
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #232323;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #808080;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .3s; /* If you want a transition effect */
+    padding: 20px;
+}
+
+

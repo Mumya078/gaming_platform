@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller
 {
+    public function indexfront(){
+        return view("page.front.uploadgames");
+    }
 
     public function tempUpload(Request $request){
         if ($request->hasFile('filepond')) {

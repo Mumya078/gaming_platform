@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -16,19 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+
+
 
 //**************************  HOME ROUTES ***********************************//
 Route::get('/',[HomeController::class,'home'])->name('home');
@@ -38,8 +29,11 @@ Route::get('/home',function (){
 Route::get('/anasayfa',function (){
     return redirect('/');
 });
+Route::get('/dashboard',function (){
+    return redirect('/');
+});
 
-
+Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
 
 //*************************** ADMİN ROUTES **********************************//
 Route::get('/admin',[AdminController::class,'home'])->name('admin_home');
@@ -56,3 +50,8 @@ Route::get('/game/{id}',[GameController::class,'index'])->name('game_index');
 //****************************** TEMP ROUTES **************************************//
 Route::post('/temp-upload',[GameController::class,'tempUpload']);
 Route::delete('/temp-delete',[GameController::class,'tempDelete']);
+
+
+//****************************** AUTH ROUTES *************************************//
+Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
