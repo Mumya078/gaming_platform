@@ -25,7 +25,7 @@
         <h5>Yusuf Emir Tatlı</h5>
         <h6>yusufemirtatli@hotmail.com</h6>
         <a href="#">Profile</a>
-        <a href="#">Upload Game</a>
+        <a href="{{route('game_upload')}}">Upload Game</a>
         <a href="{{route("logout")}}">Logout</a>
     </div>
 </div>

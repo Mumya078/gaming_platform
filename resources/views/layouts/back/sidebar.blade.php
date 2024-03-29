@@ -54,9 +54,26 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('add_game')}}" class="nav-link">
+                            <a href="{{route('approve_games')}}" class="nav-link">
                                 <i style="color: greenyellow" class="far fa-circle nav-icon"></i>
-                                <p>Add Games</p>
+                                <p>Approve Games</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Category
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('add_cat')}}" class="nav-link">
+                                <i style="color: greenyellow" class="far fa-circle nav-icon"></i>
+                                <p>Add Category</p>
                             </a>
                         </li>
                     </ul>

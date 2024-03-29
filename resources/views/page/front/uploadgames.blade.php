@@ -5,25 +5,26 @@
 
 @section("content")
     <div class="main">
-        <div class="content-my">
-            <div class="card card-primary">
+        <div class="content">
+            <div class="container-fluid">
+            <div class="card card-primary" style="margin-top: 80px">
                 <div class="card-header">
-                    <h3 class="card-title">Add Game</h3>
+                    <h3 class="my-title">Add Game</h3>
                 </div>
                 <!-- /.card-header -->
                 <form action="{{route('upload_game')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Game Title</label>
+                            <label class="label" for="exampleInputEmail1">Game Title</label>
                             <input type="text" class="form-control" name="gameTitle" id="gameTitle" placeholder="Game Title">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Category</label>
+                            <label class="label" for="exampleInputEmail1">Category</label>
                             <input type="text" class="form-control" name="category" id="category" placeholder="Category">
                         </div>
                         <div class="form-group">
-                            <label for="">Build Sources ( Just Loader And .unityweb Files) And Thumbnail</label>
+                            <label class="label">Build Sources ( Just Loader And .unityweb Files) And Thumbnail</label>
                             <div>
                                 <input type="file"
                                        class="filepond"
@@ -46,7 +47,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script>
         // Get a reference to the file input element

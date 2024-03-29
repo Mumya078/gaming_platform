@@ -37,9 +37,9 @@ Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_uploa
 
 //*************************** ADMİN ROUTES **********************************//
 Route::get('/admin',[AdminController::class,'home'])->name('admin_home');
-Route::get('/admin/addgame',[AdminController::class,'add_game'])->name('add_game');
-
-
+Route::get('/admin/approvegame',[AdminController::class,'approve_game'])->name('approve_games');
+Route::get('/admin/addcat',[AdminController::class,'add_cat'])->name('add_cat');
+Route::post('/admin/addcat/uploadcat',[AdminController::class,'upload_cat'])->name('upload_cat');
 
 //*************************** GAME ROUTES *************************************//
 Route::post('/uploadgame',[GameController::class,'uploadGame'])->name('upload_game');

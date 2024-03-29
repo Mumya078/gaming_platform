@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Games;
 use App\Models\TemporaryFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -65,6 +66,7 @@ class GameController extends Controller
         $data->js_unityweb_name = $js;
         $data->wasm_unityweb_name = $wasm;
         $data->loader_name = $loader;
+        $data->user_id = Auth::user()->id;
         $data->image = $image;
         $data->save();
 
@@ -74,6 +76,7 @@ class GameController extends Controller
 
         DB::table('temporary_files')->truncate();
 
+        return redirect('/');
     }
 
     public function index($id){
