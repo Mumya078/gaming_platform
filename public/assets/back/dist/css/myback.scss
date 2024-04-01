@@ -1,0 +1,14 @@
+.my-imgholder{
+    width: 75px;
+    height: 75px;
+    justify-content: center;
+    display: flex;
+    place-items: center;
+    border-radius: 15px;
+    >img{
+        border-radius: 15px;
+        position: absolute;
+        width: 75px;
+        height: 75px;
+    }
+}

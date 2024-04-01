@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(){
-        $games = Games::all();
+        $games = Games::where('approved', true)->get();;
 
         return view("page.front.home",[
             'games'=>$games,

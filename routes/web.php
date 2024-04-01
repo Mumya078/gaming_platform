@@ -32,26 +32,26 @@ Route::get('/anasayfa',function (){
 Route::get('/dashboard',function (){
     return redirect('/');
 });
-
-Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
-
-//*************************** ADMİN ROUTES **********************************//
-Route::get('/admin',[AdminController::class,'home'])->name('admin_home');
-Route::get('/admin/approvegame',[AdminController::class,'approve_game'])->name('approve_games');
-Route::get('/admin/addcat',[AdminController::class,'add_cat'])->name('add_cat');
-Route::post('/admin/addcat/uploadcat',[AdminController::class,'upload_cat'])->name('upload_cat');
-
-//*************************** GAME ROUTES *************************************//
-Route::post('/uploadgame',[GameController::class,'uploadGame'])->name('upload_game');
 Route::get('/game/{id}',[GameController::class,'index'])->name('game_index');
 
 
+Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
+    Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
+    //*************************** GAME ROUTES *************************************//
+    Route::post('/uploadgame',[GameController::class,'uploadGame'])->name('upload_game');
+    //*************************** ADMİN ROUTES **********************************//
+    Route::get('/admin',[AdminController::class,'home'])->name('admin_home');
+    Route::get('/admin/approvegames',[AdminController::class,'approve_games'])->name('approve_games');
+    Route::get('/admin/approvegames/delete/{id}',[AdminController::class,'deny_game'])->name('deny_game');
+    Route::get('/admin/approvegames/approve/{id}',[AdminController::class,'approve_game'])->name('approve_game');
+    Route::get('/admin/addcat',[AdminController::class,'add_cat'])->name('add_cat');
+    Route::post('/admin/addcat/uploadcat',[AdminController::class,'upload_cat'])->name('upload_cat');
 
-//****************************** TEMP ROUTES **************************************//
-Route::post('/temp-upload',[GameController::class,'tempUpload']);
-Route::delete('/temp-delete',[GameController::class,'tempDelete']);
+    //****************************** TEMP ROUTES **************************************//
+    Route::post('/temp-upload',[GameController::class,'tempUpload']);
+    Route::delete('/temp-delete',[GameController::class,'tempDelete']);
 
-
-//****************************** AUTH ROUTES *************************************//
-Route::get('/login',[AuthController::class,'login'])->name('login');
-Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    //****************************** AUTH ROUTES *************************************//
+    Route::get('/login',[AuthController::class,'login'])->name('login');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+});
