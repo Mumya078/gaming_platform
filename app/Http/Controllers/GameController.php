@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Gamecat;
 use App\Models\Games;
 use App\Models\TemporaryFile;
 use Illuminate\Http\Request;
@@ -15,7 +17,10 @@ use Illuminate\Support\Facades\Storage;
 class GameController extends Controller
 {
     public function indexfront(){
-        return view("page.front.uploadgames");
+        $category = Category::all();
+        return view("page.front.uploadgames",[
+            'category'=>$category
+        ]);
     }
 
     public function tempUpload(Request $request){
@@ -61,7 +66,7 @@ class GameController extends Controller
 
         $data = new Games();
         $data->name = $folderName;
-        $data->category = $request->category;
+      //  $data->category = $request->category;
         $data->data_unityweb_name = $dataunity;
         $data->js_unityweb_name = $js;
         $data->wasm_unityweb_name = $wasm;
@@ -69,7 +74,12 @@ class GameController extends Controller
         $data->user_id = Auth::user()->id;
         $data->image = $image;
         $data->save();
-
+        foreach ($request->category as $categoryId){
+            $gamecat = new Gamecat();
+            $gamecat->category_id = $categoryId;
+            $gamecat->game_id = $data->id;
+            $gamecat->save();
+        }
         $kaynak = "storage/";
         $hedef = "games/";
         rename($kaynak . 'tmp' , $hedef . $folderName);

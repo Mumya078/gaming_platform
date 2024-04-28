@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Games extends Model
+class Gamecat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
-
+    public function games()
+    {
+        return $this->belongsToMany(Games::class);
+    }
     public function category()
     {
-        return $this->belongsToMany(Gamecat::class);
+        return $this->belongsToMany(Category::class);
     }
 }
