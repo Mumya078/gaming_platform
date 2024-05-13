@@ -25,7 +25,7 @@
                             <input type="text" class="form-control" name="gameTitle" id="gameTitle" placeholder="Game Title">
                         </div>
                         <div class="form-group">
-                            <label for="category">Custom Select Multiple</label>
+                            <label for="category">Select categories</label>
                             <select name="category[]" class="form-select" data-placeholder="Choose anything" id="category" multiple>
                                 @foreach($category as $rs)
                                     <option value="{{$rs->id}}">{{$rs->name}}</option>

@@ -10,7 +10,30 @@
                 reklam
             </div>
             <div class="slider">
-                slider
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" style="border-radius: 10px">
+                            <div class="carousel-item active" style="border-radius: 10px">
+                                <a href="/game/7">
+                                    <img class="slider" src="/games/Araba/btc.jpg" alt="First slide">
+                                </a>
+                            </div>
+                        @foreach($games as $game)
+                            <div class="carousel-item" style="border-radius: 10px">
+                                <a href="/game/{{$game->id}}">
+                                    <img class="slider" src="/games/{{$game->name}}/{{$game->image}}" alt="First slide" style="border-radius: 10px">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
             <div class="reklam">
                 reklam
@@ -18,7 +41,9 @@
         </div>
         <div class="main">
             <div class="header-home">
-                Category
+                @foreach($category as $rs)
+                   <a href="{{route('category',$rs->id)}}" style="text-decoration: none"><div class="cat-container">{{$rs->name}}</div></a>
+                @endforeach
             </div>
             <div class="list">
                 @foreach($games as $rs)

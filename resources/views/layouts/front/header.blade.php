@@ -1,12 +1,17 @@
 <div class="header">
     <div class="left-side">
-        <h5>
-            OYUNLARIM.COM
-        </h5>
+        <a href="/">
+            <h5>
+                OYUNLARIM.COM
+            </h5>
+        </a>
     </div>
     @if(\Illuminate\Support\Facades\Auth::check() != true)
+        <a href="/register">
+            <div class="register btn btn-sm"><h3>Register</h3></div>
+        </a>
         <a href="{{route('login')}}">
-            <div class="login btn btn-sm"><h3>Log in</h3></div>
+            <div class="login btn btn-sm"><h3>Login</h3></div>
         </a>
     @else
         <div class="user-pp">
@@ -14,21 +19,23 @@
         </div>
     @endif
 </div>
-<div id="mySidebar" class="sidebar" style="flex-direction: column">
-    <div style="display: flex;height: 100px">
-        <div class="user-pp-side">
-            <img src="/assets/images/pngwing.com.png">
+@if(\Illuminate\Support\Facades\Auth::check())
+    <div id="mySidebar" class="sidebar" style="flex-direction: column">
+        <div style="display: flex;height: 100px">
+            <div class="user-pp-side">
+                <img src="/assets/images/pngwing.com.png">
+            </div>
+        </div>
+        <div class="inside">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+            <h5>{{\Illuminate\Support\Facades\Auth::user()->name}}</h5>
+            <h6>{{\Illuminate\Support\Facades\Auth::user()->email}}</h6>
+            <a href="{{route('profile')}}">Profile</a>
+            <a href="{{route('game_upload')}}">Upload Game</a>
+            <a href="{{route("logout")}}">Logout</a>
         </div>
     </div>
-    <div class="inside">
-        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
-        <h5>Yusuf Emir Tatlı</h5>
-        <h6>yusufemirtatli@hotmail.com</h6>
-        <a href="#">Profile</a>
-        <a href="{{route('game_upload')}}">Upload Game</a>
-        <a href="{{route("logout")}}">Logout</a>
-    </div>
-</div>
+@endif
 
 <script>
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */

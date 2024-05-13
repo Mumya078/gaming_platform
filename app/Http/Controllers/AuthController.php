@@ -15,4 +15,19 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function signup(){
+        return view("auth.register");
+    }
+    public function profile(){
+        return view("page.front.profile");
+    }
+
+    public function update_profile(Request $request){
+        $data = Auth::user();
+        $data->email = $request->email;
+        $data->name = $request->name;
+        $data->save();
+        return redirect('/profile');
+    }
 }

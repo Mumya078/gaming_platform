@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //**************************  HOME ROUTES ***********************************//
 Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/category/{category}',[HomeController::class,'category'])->name('category');
+//***************************** TRY ROUTES **********************************//
 Route::get('/home',function (){
     return redirect('/');
 });
@@ -32,9 +34,9 @@ Route::get('/anasayfa',function (){
 Route::get('/dashboard',function (){
     return redirect('/');
 });
+
+
 Route::get('/game/{id}',[GameController::class,'index'])->name('game_index');
-
-
 Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
     Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
     //*************************** GAME ROUTES *************************************//
@@ -53,5 +55,8 @@ Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
 
     //****************************** AUTH ROUTES *************************************//
     Route::get('/login',[AuthController::class,'login'])->name('login');
+    Route::get('/signup',[AuthController::class,'signup'])->name('signup');
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::get('/profile',[AuthController::class,'profile'])->name('profile');
+    Route::post('/profile/update',[AuthController::class,'update_profile'])->name('update_profile');
 });
