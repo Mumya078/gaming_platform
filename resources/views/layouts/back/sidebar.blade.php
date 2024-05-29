@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="" class="brand-link">
         <img src="/assets/back/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Oyunlarım.com</span>
     </a>
 
     <!-- Sidebar -->
@@ -14,7 +14,7 @@
                 <img src="/assets/back/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
             </div>
         </div>
 
@@ -36,15 +36,6 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -53,6 +44,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('list_games')}}" class="nav-link">
+                                <i style="color: #d3d3d3" class="far fa-circle nav-icon"></i>
+                                <p>List Games</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{route('approve_games')}}" class="nav-link">
                                 <i style="color: greenyellow" class="far fa-circle nav-icon"></i>
@@ -77,24 +74,6 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-header">EXAMPLES</li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>
-                            Calendar
-                            <span class="badge badge-info right">2</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                            Gallery
-                        </p>
-                    </a>
                 </li>
             </ul>
         </nav>

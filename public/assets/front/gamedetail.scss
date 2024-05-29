@@ -1,0 +1,213 @@
+.main{
+    display: flex;
+    background: radial-gradient(circle at right bottom, #84f0ee , #967fef);
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    padding: 75px 25px 25px;
+}
+
+.frame{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    place-items: center;
+}
+.game-holder{
+    width: 800px;
+    height: 400px;
+    background-color: blue;
+    display: flex;
+    border: 2px solid black;
+}
+.sub-menu{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.headers{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.rating{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    right: 365px;
+    top: 85px;
+}
+.tab {
+    font-size: 26px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fafafa !important;
+    -webkit-text-stroke: 0.5px black;
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+.tab-content {
+    margin-top: 20px;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    display: none;
+}
+.active{
+    display: block;
+}
+.comment-menu{
+    display: flex;
+    flex-direction: column;
+}
+.comments{
+    background-color: lightskyblue;
+    border-radius: 25px;
+    border: 1px solid black;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    margin-bottom: 15px;
+    flex-direction: row;
+}
+.comment-container{
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    outline: 1px solid black;
+    border-radius: 5px;
+
+}
+.comment-container::-webkit-scrollbar{
+    width: 10px;
+}
+/* Track */
+.comment-container::-webkit-scrollbar-track {
+    background: #dbeaff;
+    border-radius: 10px;
+}
+
+/* Handle */
+.comment-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.comment-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.comment-container::-webkit-scrollbar-corner {
+    border-radius: 10px;
+}
+.pp{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    border-radius: 25px;
+    background-color: grey;
+    place-items: center;
+    justify-content: center;
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+.text{
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center; /* H4 etiketini ortalamak için */
+    flex-direction: column;
+    >h4{
+        width: 100%;
+        text-align: center; /* H4 etiketinin metnini ortalamak için */
+        margin-right: 160px;
+
+    }
+    >p{
+        width: 100%;
+        text-align: left; /* P etiketinin metnini sola yaslamak için */
+        margin-left: 0; /* P etiketini sol tarafa yaslamak için */
+        overflow-y: hidden;
+    }
+}
+.tab.active-tab {
+    background-color: #9a9a9a; /* Aktif sekme rengi */
+    border-radius: 20px;
+}
+
+.write-comment{
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+.write-comment-container{
+    width: 800px;
+    height: 150px;
+    place-items: center;
+    justify-content: center;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 40px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:26px;
+    color:#fff;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: orange;
+}
+
+.checked{
+    color: orange;
+}
+.comment-rate{
+    position: relative;
+    width: 125px;
+    height: 40px;
+    right: 15px;
+    margin-top: 15px;
+}

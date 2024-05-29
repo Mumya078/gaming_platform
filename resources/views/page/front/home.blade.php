@@ -7,20 +7,20 @@
     <div style="background: radial-gradient(circle at right bottom, #84f0ee , #967fef)">
         <div class="main1">
             <div class="reklam">
-                reklam
+                <img src="/assets/images/Google_Ads_logo.svg.png">
             </div>
             <div class="slider">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" style="border-radius: 10px">
                             <div class="carousel-item active" style="border-radius: 10px">
-                                <a href="/game/7">
-                                    <img class="slider" src="/games/Araba/btc.jpg" alt="First slide">
+                                <a href="/game/1">
+                                    <img class="slider-img" src="/games/Btcminer/btc.jpg" alt="First slide">
                                 </a>
                             </div>
                         @foreach($games as $game)
                             <div class="carousel-item" style="border-radius: 10px">
                                 <a href="/game/{{$game->id}}">
-                                    <img class="slider" src="/games/{{$game->name}}/{{$game->image}}" alt="First slide" style="border-radius: 10px">
+                                    <img class="slider-img" src="/games/{{$game->name}}/{{$game->image}}" alt="First slide" style="border-radius: 10px">
                                 </a>
                             </div>
                         @endforeach
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="reklam">
-                reklam
+                <img src="/assets/images/Google_Ads_logo.svg.png">
             </div>
         </div>
         <div class="main">

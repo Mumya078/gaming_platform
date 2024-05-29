@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\GameDetailController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,8 +42,10 @@ Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
     Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
     //*************************** GAME ROUTES *************************************//
     Route::post('/uploadgame',[GameController::class,'uploadGame'])->name('upload_game');
+    Route::post('/game/{id}/uploadcomment',[GameDetailController::class,'uploadComment'])->name('upload_comment');
     //*************************** ADMİN ROUTES **********************************//
     Route::get('/admin',[AdminController::class,'home'])->name('admin_home');
+    Route::get('/admin/listgames',[AdminController::class,'list_games'])->name('list_games');
     Route::get('/admin/approvegames',[AdminController::class,'approve_games'])->name('approve_games');
     Route::get('/admin/approvegames/delete/{id}',[AdminController::class,'deny_game'])->name('deny_game');
     Route::get('/admin/approvegames/approve/{id}',[AdminController::class,'approve_game'])->name('approve_game');

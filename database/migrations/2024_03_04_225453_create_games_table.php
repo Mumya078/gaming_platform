@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->nullable();
             $table->string('name');
+            $table->float('rate')->nullable();
             $table->string('desc')->nullable();
             $table->string('image')->nullable();
             $table->string('data_unityweb_name')->nullable();

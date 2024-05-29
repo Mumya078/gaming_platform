@@ -61,6 +61,14 @@ class AdminController extends Controller
         }
     }
 
+    public function list_games(){
+        $games = Games::where('approved',true)->get();
+
+        return view('page.back.games.list',[
+            'games' => $games,
+        ]);
+    }
+
     public function add_cat(){
         return view('page.back.category.add');
     }

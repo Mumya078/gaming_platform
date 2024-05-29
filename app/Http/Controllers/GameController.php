@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\comment;
 use App\Models\Gamecat;
 use App\Models\Games;
 use App\Models\TemporaryFile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -91,9 +93,11 @@ class GameController extends Controller
 
     public function index($id){
         $game = Games::find($id);
-
-        return view("page.front.games.index",[
+        $comments = Comment::where('game_id',$id)->get();
+        return view("page.front.games.gamedetail",[
             'game'=>$game,
+            'comments'=>$comments
         ]);
+
     }
 }
