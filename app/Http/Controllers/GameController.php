@@ -100,4 +100,11 @@ class GameController extends Controller
         ]);
 
     }
+
+    public function play($id){
+        $game = Games::find($id);
+        return view("page.front.games.index",[
+            'game' => $game
+        ]);
+    }
 }

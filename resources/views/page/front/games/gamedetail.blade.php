@@ -6,6 +6,12 @@
     <div class="main">
         <div class="frame">
             <div class="game-holder">
+                <img class="game-img-holder" src="/games/{{$game->name}}/{{$game->image}}">
+                <div class="playbutton">
+                    <a href="{{route('play_game',$game->id)}}">
+                        <img src="/assets/images/playbutton.png">
+                    </a>
+                </div>
                 <div class="rating">
                     @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= round($game->rate))
@@ -19,12 +25,11 @@
             <div class="sub-menu">
                 <div class="headers">
                     <div style="border: 2px solid black;border-radius: 20px">
-                        <a class="tab" data-content="comment">Comment</a>
-                        <a class="tab" data-content="rate">Rate</a>
                         <a class="tab" data-content="desc">Description</a>
+                        <a class="tab" data-content="comment">Comment</a>
                     </div>
                 </div>
-                <div id="comment" class="tab-content active">
+                <div id="comment" class="tab-content">
                     <div class="comment-container">
                         @foreach($comments as $rs)
                             @php
@@ -79,13 +84,14 @@
                         </div>
                     </div>
                 </div>
-
-                <div id="rate" class="tab-content">
-                    rate
-                </div>
-
-                <div id="desc" class="tab-content">
-                    desc
+                <div id="desc" class="tab-content active">
+                    <div class="desc-main">
+                        <div class="desc-text">
+                            <p>
+                                {{$game->desc}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

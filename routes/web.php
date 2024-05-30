@@ -38,6 +38,7 @@ Route::get('/dashboard',function (){
 
 
 Route::get('/game/{id}',[GameController::class,'index'])->name('game_index');
+Route::get('/game/{id}/play',[GameController::class,'play'])->name('play_game');
 Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
     Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
     //*************************** GAME ROUTES *************************************//

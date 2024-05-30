@@ -143,7 +143,7 @@
     }
 }
 .tab.active-tab {
-    background-color: #9a9a9a; /* Aktif sekme rengi */
+    background-color: grey; /* Aktif sekme rengi */
     border-radius: 20px;
 }
 
@@ -210,4 +210,43 @@
     height: 40px;
     right: 15px;
     margin-top: 15px;
+}
+.game-img-holder{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.playbutton{
+    position: absolute;
+    z-index: 0.5;
+    justify-content: center;
+    place-items: center;
+    margin-left: 320px;
+    margin-top: 100px;
+    >a{
+        >img{
+            width: 175px;
+            height: 175px;
+            object-fit: contain;
+        }
+    }
+}
+.desc-main{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+.desc-text{
+    background-color: #E6E6E6;
+    width: 1000px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    padding: 8px;
+    >p{
+        font-size: 18px;
+        overflow-y: hidden;
+    }
 }
