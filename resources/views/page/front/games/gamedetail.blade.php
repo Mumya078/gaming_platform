@@ -37,7 +37,7 @@
                             @endphp
                             <div class="comments">
                                 <div class="pp">
-                                    <img src="/assets/images/pngwing.com.png">
+                                    <img src="/storage/{{$user->profile_photo_path}}">
                                 </div>
                                 <div class="text">
                                     <h4>{{$user->name}}</h4>

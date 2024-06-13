@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Image;
+
 
 class AuthController extends Controller
 {
@@ -27,6 +29,8 @@ class AuthController extends Controller
         $data = Auth::user();
         $data->email = $request->email;
         $data->name = $request->name;
+
+
         $data->save();
         return redirect('/profile');
     }

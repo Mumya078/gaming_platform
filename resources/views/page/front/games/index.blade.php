@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Unity WebGL Player | Btc Farmer</title>
     <link rel="shortcut icon" href="/games/!dependencies/TemplateData/favicon.ico">
     <link rel="stylesheet" href="/games/!dependencies/TemplateData/style.css">
@@ -114,6 +115,32 @@
         });
     };
     document.body.appendChild(script);
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Sayfa yüklendiğinde zamanı kaydet
+        let enterTime = new Date().getTime();
+
+        // CSRF token'i meta etiketinden al
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        // Sayfadan ayrılmadan önce zamanı kaydet
+        window.addEventListener('beforeunload', function() {
+            let leaveTime = new Date().getTime();
+            let deltaTime = leaveTime - enterTime; // Milisaniye cinsinden fark
+            deltaTime = deltaTime / 10000;
+
+            // deltaTime değerini sunucuya gönder
+            fetch('/update-diamond/{{$game->id}}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({ deltaTime: deltaTime })
+            });
+        });
+    });
 </script>
 </body>
 </html>

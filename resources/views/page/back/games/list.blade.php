@@ -59,7 +59,7 @@
                                             </div>
                                         </a>
                                     </td>
-                                    <td style="padding-left: 15px;padding-top: 30px"><a href=""><button class="btn btn-sm btn-danger">Delete</button></a></td>
+                                    <td style="padding-left: 15px;padding-top: 30px"><a href="{{route('delete_game',$rs->id)}}"><button class="btn btn-sm btn-danger">Delete</button></a></td>
                             @endforeach
                             </tbody>
                         </table>

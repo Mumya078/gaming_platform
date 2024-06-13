@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GameDetailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 //**************************  HOME ROUTES ***********************************//
 Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/',[HomeController::class,'home'])->name('dashboard');
+
 Route::get('/category/{category}',[HomeController::class,'category'])->name('category');
 //***************************** TRY ROUTES **********************************//
 Route::get('/home',function (){
@@ -37,8 +40,11 @@ Route::get('/dashboard',function (){
 });
 
 
-Route::get('/game/{id}',[GameController::class,'index'])->name('game_index');
-Route::get('/game/{id}/play',[GameController::class,'play'])->name('play_game');
+    Route::get('/game/{id}',[GameController::class,'index'])->name('game_index');
+    Route::get('/game/{id}/play',[GameController::class,'play'])->name('play_game');
+    Route::post('/update-diamond/{id}', [TimeController::class, 'updateDiamond']);
+
+
 Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
     Route::get('/uploadgame',[GameController::class,'indexfront'])->name('game_upload');
     //*************************** GAME ROUTES *************************************//
@@ -47,6 +53,7 @@ Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
     //*************************** ADMİN ROUTES **********************************//
     Route::get('/admin',[AdminController::class,'home'])->name('admin_home');
     Route::get('/admin/listgames',[AdminController::class,'list_games'])->name('list_games');
+    Route::get('/admin/listgames/delete/{id}',[AdminController::class,'delete_game'])->name('delete_game');
     Route::get('/admin/approvegames',[AdminController::class,'approve_games'])->name('approve_games');
     Route::get('/admin/approvegames/delete/{id}',[AdminController::class,'deny_game'])->name('deny_game');
     Route::get('/admin/approvegames/approve/{id}',[AdminController::class,'approve_game'])->name('approve_game');

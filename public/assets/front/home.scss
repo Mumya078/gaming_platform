@@ -13,6 +13,11 @@
     width: 800px;
     height: 350px;
     border-radius: 10px;
+    >div{
+        >a{
+            z-index: 0;
+        }
+    }
 }
 .slider-img{
     width: 800px;

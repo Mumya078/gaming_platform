@@ -69,6 +69,16 @@ class AdminController extends Controller
         ]);
     }
 
+    public function delete_game($id){
+        $game = Games::find($id);
+        $game->delete();
+        $folderName = public_path('games/' . $game->name);
+        // Dosya sistemi üzerinde klasörü sil
+            File::deleteDirectory($folderName);
+
+        return redirect('/admin/listgames');
+    }
+
     public function add_cat(){
         return view('page.back.category.add');
     }

@@ -15,7 +15,7 @@
         </a>
     @else
         <div class="user-pp">
-            <img src="/assets/images/pngwing.com.png" id="openImage" onclick="toggleNav()" alt="Açılır Pencereyi Aç">
+            <img src="/storage/{{\Illuminate\Support\Facades\Auth::user()->profile_photo_path}}" id="openImage" onclick="toggleNav()" alt="Açılır Pencereyi Aç">
         </div>
     @endif
 </div>
@@ -23,16 +23,23 @@
     <div id="mySidebar" class="sidebar" style="flex-direction: column">
         <div style="display: flex;height: 100px">
             <div class="user-pp-side">
-                <img src="/assets/images/pngwing.com.png">
+                <img src="/storage/{{\Illuminate\Support\Facades\Auth::user()->profile_photo_path}}">
             </div>
         </div>
         <div class="inside">
             <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
             <h5>{{\Illuminate\Support\Facades\Auth::user()->name}}</h5>
             <h6>{{\Illuminate\Support\Facades\Auth::user()->email}}</h6>
-            <a href="{{route('profile')}}">Profile</a>
-            <a href="{{route('game_upload')}}">Upload Game</a>
-            <a href="{{route("logout")}}">Logout</a>
+            <h4><i class="fa-solid fa-gem" style="margin-right: 15px;margin-top: 4px;color: darkblue"></i>{{\Illuminate\Support\Facades\Auth::user()->diamond}}
+                <a href="">
+                    <button class="btn btn-sm btn-secondary">
+                        Cashout
+                    </button>
+                </a>
+            </h4>
+            <a href="{{route('profile')}}"><i class="fa-solid fa-user" style="margin-right: 10px"></i>Profile</a>
+            <a href="{{route('game_upload')}}"><i class="fa-solid fa-upload" style="margin-right: 10px"></i>Upload Game</a>
+            <a href="{{route("logout")}}"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px"></i>Logout</a>
         </div>
     </div>
 @endif
@@ -54,3 +61,4 @@
         }
     }
 </script>
+<script src="https://kit.fontawesome.com/54878a8355.js" crossorigin="anonymous"></script>
