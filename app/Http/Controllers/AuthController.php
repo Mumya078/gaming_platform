@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cashout;
+use App\Models\withdraw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Image;
@@ -34,4 +36,7 @@ class AuthController extends Controller
         $data->save();
         return redirect('/profile');
     }
+
+
+
 }

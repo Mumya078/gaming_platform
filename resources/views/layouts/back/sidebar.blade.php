@@ -75,6 +75,41 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Cashouts
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('cashout_setting')}}" class="nav-link">
+                                <i style="color: #d3d3d3" class="far fa-circle nav-icon"></i>
+                                <p>Cashout Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('waiting')}}" class="nav-link">
+                                <i style="color: yellow" class="far fa-circle nav-icon"></i>
+                                <p>Waiting Cashouts</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('accepted')}}" class="nav-link">
+                                <i style="color: greenyellow" class="far fa-circle nav-icon"></i>
+                                <p>Accepted Cashouts</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('rejected')}}" class="nav-link">
+                                <i style="color: red" class="far fa-circle nav-icon"></i>
+                                <p>Rejected Cashouts</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -68,7 +68,7 @@ class GameController extends Controller
 
         $data = new Games();
         $data->name = $folderName;
-      //  $data->category = $request->category;
+        $data->desc = $request->desc;
         $data->data_unityweb_name = $dataunity;
         $data->js_unityweb_name = $js;
         $data->wasm_unityweb_name = $wasm;

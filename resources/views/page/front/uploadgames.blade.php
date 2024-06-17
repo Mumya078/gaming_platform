@@ -33,6 +33,10 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="category">Description</label>
+                            <input type="text" class="form-control" name="desc" id="desc" placeholder="Description">
+                        </div>
+                        <div class="form-group">
                             <label class="label">Build Sources ( Just Loader And .unityweb Files) And Thumbnail</label>
                             <div>
                                 <input type="file"

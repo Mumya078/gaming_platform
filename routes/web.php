@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CashoutController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GameDetailController;
 use App\Http\Controllers\HomeController;
@@ -59,6 +60,19 @@ Route::middleware('App\Http\Middleware\AuthenticateUser')->group(function (){
     Route::get('/admin/approvegames/approve/{id}',[AdminController::class,'approve_game'])->name('approve_game');
     Route::get('/admin/addcat',[AdminController::class,'add_cat'])->name('add_cat');
     Route::post('/admin/addcat/uploadcat',[AdminController::class,'upload_cat'])->name('upload_cat');
+    //***************************** CASHOUT ROUTES ***********************************//
+    Route::get('/cashout',[CashoutController::class,'cashout'])->name('cashout');
+    Route::get('/admin/cashout/setting',[CashoutController::class,'cashout_setting'])->name('cashout_setting');
+    Route::post('/admin/cashout/setting/uploadchoice',[CashoutController::class,'upload_choice'])->name('upload_choice');
+    Route::get('/admin/cashout/setting/delete/{id}',[CashoutController::class,'delete'])->name('delete');
+    Route::get('/admin/cashout/waiting',[CashoutController::class,'waiting'])->name('waiting');
+    Route::post('/cashout/withdraw',[CashoutController::class,'withdraw'])->name('withdraw');
+    Route::get('/cashout/waiting/accept/{id}',[CashoutController::class,'accept_cashout'])->name('accept_cashout');
+    Route::get('/cashout/waiting/reject/{id}',[CashoutController::class,'reject_cashout'])->name('reject_cashout');
+    Route::get('admin/cashout/accepted',[CashoutController::class,'accepted'])->name('accepted');
+    Route::get('/admin/cashout/accepted/delete/{id}',[CashoutController::class,'delete_accepted_withdraw'])->name('delete_accepted');
+    Route::get('admin/cashout/rejected',[CashoutController::class,'rejected'])->name('rejected');
+    Route::get('/admin/cashout/rejected/delete/{id}',[CashoutController::class,'delete_accepted_withdraw'])->name('delete_accepted');
 
     //****************************** TEMP ROUTES **************************************//
     Route::post('/temp-upload',[GameController::class,'tempUpload']);

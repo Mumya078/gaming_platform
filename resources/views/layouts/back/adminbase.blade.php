@@ -65,5 +65,6 @@
 <script src="{{asset('/assets/back/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/assets/back/dist/js/adminlte.js')}}"></script>
+<script src="https://kit.fontawesome.com/54878a8355.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cashout;
 use App\Models\Category;
 use App\Models\Games;
 use Illuminate\Http\Request;
@@ -90,4 +91,5 @@ class AdminController extends Controller
 
         return redirect('/admin/addcat');
     }
+
 }

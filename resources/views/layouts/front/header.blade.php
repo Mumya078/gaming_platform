@@ -31,7 +31,7 @@
             <h5>{{\Illuminate\Support\Facades\Auth::user()->name}}</h5>
             <h6>{{\Illuminate\Support\Facades\Auth::user()->email}}</h6>
             <h4><i class="fa-solid fa-gem" style="margin-right: 15px;margin-top: 4px;color: darkblue"></i>{{\Illuminate\Support\Facades\Auth::user()->diamond}}
-                <a href="">
+                <a href="{{route('cashout')}}">
                     <button class="btn btn-sm btn-secondary">
                         Cashout
                     </button>
